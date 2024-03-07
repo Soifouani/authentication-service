@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: ${APP_NAME}
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+  jpa:
+    database: ${DATABASE}
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        check_nullability: true
+        jdbc:
+          time_zone: Europe/Paris
+        format_sql: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+rsa:
+  public-key: ${RSA_PUBLIC_KEY}
+  private-key: ${RSP_PRIVATE_KEY}
+token:
+  confirm-account-token-timeout: 10
+  access-token-timeout: 60
+  refresh-token-timeout: 1000
+  issuer: https://my-app.com
+

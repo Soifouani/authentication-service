@@ -1,0 +1,9 @@
+APP_NAME: "authentication-service"
+DATABASE: "MYSQL"
+DATABASE_NAME: "AUTHENTICATION_DB"
+DATABASE_HOST: "localhost"
+DATABASE_PORT: '3306'
+DATABASE_USERNAME: "root"
+DATABASE_PASSWORD: "root"
+RSA_PUBLIC_KEY: "classpath:certs/public.pem"
+RSP_PRIVATE_KEY: "classpath:certs/private.pem"
